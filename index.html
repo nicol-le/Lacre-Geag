@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Entomofauna-BIOTA</title>
+    <link rel="shortcut icon" type="imagex/png" href="Design sem nome (16).png">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding-top: 60px;
+        }
+
+        header {
+            width: 100%;
+            height: 60px;
+            background-color: #003399;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .main-content {
+            margin-top: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-container {
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #003399;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0055cc;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .visualizacao-dados {
+            margin-top: 20px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #003399;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registro de Pragas</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="app-container">
+            <form id="pragaForm">
+                <div class="form-group">
+                    <label for="nomePragueiro">Nome do Pragueiro:</label>
+                    <input type="text" id="nomePragueiro" placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="Propriedade">Propriedade:</label>
+                    <select id="propriedade">
+                        <option value="Polenghi">Angatuba_Polenghi_FazendaCarolina</option>
+                        <option value="Polenghi_Jacaranda">Angatuba_Polenghi_Vacas de Leite Jacaranda</option>
+                        <option value="Buri_UFSCar">Buri_UFSCar</option>
+                        <option value="Itarare_AnaKarina1">Itarare_AnaKarina1</option>
+                        <option value="Itarare_AnaKarina2">Itarare_AnaKarina2</option>
+                        <option value="Itarare_Italo1">Itarare_Italo1</option>
+                        <option value="Itarare_Italo2">Itarare_Italo2</option>
+                        <option value="Taquarivai_David">Taquarivai_David</option>
+                        <option value="CMA_JoaoAgapto">CMA_JoaoAgapto</option>
+                        <option value="CMA_MarcosMilani">CMA_MarcosMilani</option>
+                    
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="cultura">Cultura:</label>
+                    <select id="cultura">
+                        <option value="soja">Soja</option>
+                        <option value="bordamata">Borda da Mata</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estagio">Estagio da Cultura</label>
+                    <input type="text" id="estagioCultura" placeholder="Digite o estágio da cultura">
+
+                </div>
+                <div class="form-group">
+                    <label for="area">Número da Área</label>
+                    <input type="number" id="numeroArea" placeholder="Digite o número da área">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tecnica">Técnica utilizada:</label>
+                    <select id="tecnica">
+                        <option value="bandeja">Bandeja</option>
+                        <option value="panobatido">Pano de Batida</option>
+                        <option value="contagem">Contagem direta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nomePraga">Praga:</label>
+                    <select id="nomePraga">
+                       
+                        <optgroup label="Percevejos">
+                      
+                            <option value="PER">Percevejo-verde (Nezara viridula)</option>
+                            <option value="PERM">Percevejo-marrom (Euchistus heros)</option>
+                            <option value="PERV">Percevejo-verde-pequeno (Piezodorus guildinii)</option>
+                            <option value="PERAP">Percevejo-marrom (Euchistus heros)</option>
+                            <option value="PG">Percevejo Desconhecido</option>
+
+                        </optgroup>
+              
+                        <optgroup label="Lagartas">
+                            <option value="Lagarta da soja (Anticarsia gemmatalis)">Lagarta da soja (Anticarsia gemmatalis)</option>
+                            <option value="Lagarta rosca (Agrotis ipsilon)">Lagarta rosca (Agrotis ipsilon)</option>
+                            <option value="Lagarta do cartucho (Spodoptera frugiperda)">Lagarta do cartucho (Spodoptera frugiperda)</option> 
+                            <option value="Lagarta mede palmo (Rachiplusia nu)">Lagarta mede palmo (Rachiplusia nu)</option>
+                            <option value="Lagarta Falsa medideira (Chrysodeixis includens)">Lagarta Falsa medideira (Chrysodeixis includens)</option>
+                           <option value="Lagarta do elasmo (Elasmopalpus lignosellus)">Lagarta do elasmo (Elasmopalpus lignosellus)</option>
+                           <option value="Lagarta das maçãs (Chloridea virescens)">Lagarta das maçãs (Chloridea virescens)</option>
+                           <option value="Lagarta das vagens (Spodoptera cosmioides)">Lagarta das vagens (Spodoptera cosmioides)</option>
+                           <option value="Lagarta das folhas (Spodoptera eridania)">Lagarta das folhas (Spodoptera eridania)</option>
+                        </optgroup>
+
+                        <optgroup label="Besouro (Chrysomelidae)">
+                            <option value="Vaquinha (Diabrotica sp.)">Vaquinha (Diabrotica sp.)</option>
+                        </optgroup>
+                        
+                        <optgroup label="Predadores (Besouros)">
+                            <option value="Staphylinidae (potó)">Staphylinidae (potó)</option>
+                            <option value="Histeridae (rola bosta)">Histeridae (rola bosta)</option>
+                            <option value="Anthicidae">Anthicidae</option>
+                            <option value="Cantharidae">Cantharidae</option>
+                            <option value="Carabidae">Carabidae</option>
+                            <option value="Coccinellidae (joaninha)">Coccinellidae (joaninha)</option>
+                        </optgroup>
+                        <optgroup label="Predadores (vespas e formigas)">
+                            <option value="Vespidae (vespa)">Vespidae (vespa)</option>
+                            <option value="Formicidae (formiga)">Formicidae (formiga)</option>
+                           
+                        </optgroup>
+                        <optgroup label="Predadores (Percevejos)">
+                            <option value="Pentatomidae">Pentatomidae</option>
+                            <option value="Nabidae">Nabidae</option>
+                            <option value="Reduviidae">Reduviidae</option>
+                            <option value="Anthocoridae">Anthocoridae</option>
+                        </optgroup>
+
+                        <optgroup label="Predadores (Tripes)">
+                            <option value="Aelothripidae (cinturinha branca)">Aelothripidae (cinturinha branca)</option>
+                            <option value="Phlaeothripidae">Phlaeothripidae</option>
+                        
+                        </optgroup>
+                        <optgroup label="Parasitóides (Hymenoptera)">
+                            <option value="Braconidae">Braconidae</option>
+                            <option value="Ichneumonidae">Ichneumonidae</option>
+                            <option value="Chalcididae">Chalcididae</option>
+                            <option value="Microhimenopteros">Microhimenopteros</option>
+                        </optgroup>
+                        <optgroup label="Parasitóides (moscas)">
+                            <option value="Tachinidae">Tachinidae</option>
+                            <option value="Sarcophagidae">Sarcophagidae</option>
+                
+                        </optgroup>
+                        
+                        </optgroup>
+                            <option value="Outro">Outro</option>
+                            <option value="Tesourinha">Tesourinha</option>
+                        
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" placeholder="Digite a quantidade">
+                </div>
+                <div class="form-group">
+                    <label for="desenvolvimento">Estágio de Desenvolvimento:</label>
+                    <select id="desenvolvimento">
+                        <option value="nada">Não Identificado</option>
+                        <option value="ovo">Ovo</option>
+                        <option value="ninfa">Ninfa</option>
+                            <option value="lagarta">Lagarta</option>
+                            <option value="Adulto">Adulto</option>
+                            <option value="larva">Larva</option>
+                       
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" placeholder="Detalhes sobre a planta ou praga"></textarea>
+                </div>
+                <button type="button" id="adicionarPraga">Adicionar Praga</button>
+            </form>
+            <button id="baixarExcel">Baixar Excel</button>
+        </div>
+        <div class="visualizacao-dados">
+            <h2>Dados Registrados</h2>
+            <table>
+                 <thead>
+                    <tr>
+                        <th>Propriedade</th>
+                        <th>Cultura</th>
+                        <th>Estagio da Cultura</th>
+                        <th>Numero da Area</th>
+                        <th>Técnica</th>
+                        <th>Praga</th>
+                        <th>Quantidade</th>
+                        <th>Estagio</th>
+                        <th>Observações</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelaDados"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+   <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    const adicionarPragaBtn = document.getElementById('adicionarPraga');
+    const tabelaDados = document.getElementById('tabelaDados');
+    const baixarExcelBtn = document.getElementById('baixarExcel');
+
+    let dadosPragas = [];
+
+    adicionarPragaBtn.addEventListener('click', () => {
+        const nomePragueiro = document.getElementById('nomePragueiro').value;
+        const propriedade = document.getElementById('propriedade').value;
+        const cultura = document.getElementById('cultura').value;
+        const estagio = document.getElementById('estagioCultura').value;
+        const numeroArea = document.getElementById('numeroArea').value;
+        const nomePraga = document.getElementById('nomePraga').value;
+        const quantidade = document.getElementById('quantidade').value;
+        const desenvolvimento = document.getElementById('desenvolvimento').value;
+        const observacoes = document.getElementById('observacoes').value;
+
+        if (!nomePragueiro || !propriedade || !cultura || !estagio || !numeroArea || !nomePraga || !quantidade) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+
+        const registro = {
+            propriedade,
+            cultura,
+            estagio,
+            numeroArea,
+            nomePraga,
+            quantidade,
+            desenvolvimento,
+            observacoes,
+        };
+
+        dadosPragas.push(registro);
+        salvarDados();
+        atualizarTabela();
+    });
+
+    function atualizarTabela() {
+        tabelaDados.innerHTML = '';
+        dadosPragas.forEach((registro, index) => {
+            const row = document.createElement('tr');
+
+            Object.values(registro).forEach(value => {
+                const cell = document.createElement('td');
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+            const actionsCell = document.createElement('td');
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Excluir';
+            deleteBtn.addEventListener('click', () => {
+                dadosPragas.splice(index, 1);
+                salvarDados();
+                atualizarTabela();
+            });
+            actionsCell.appendChild(deleteBtn);
+            row.appendChild(actionsCell);
+
+            tabelaDados.appendChild(row);
+        });
+    }
+
+    function salvarDados() {
+        localStorage.setItem('dadosPragas', JSON.stringify(dadosPragas));
+    }
+
+    function carregarDados() {
+        const dadosSalvos = localStorage.getItem('dadosPragas');
+        if (dadosSalvos) {
+            dadosPragas = JSON.parse(dadosSalvos);
+            atualizarTabela();
+        }
+    }
+
+    baixarExcelBtn.addEventListener('click', () => {
+        if (dadosPragas.length === 0) {
+            alert('Não há dados para exportar.');
+            return;
+        }
+
+        const worksheet = XLSX.utils.json_to_sheet(dadosPragas);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Pragas');
+
+        XLSX.writeFile(workbook, 'dados_pragas_biota.xlsx');
+    });
+
+    carregarDados();
+});
+
+   </script>
+</body>
+</html>
