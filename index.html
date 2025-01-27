@@ -22,7 +22,7 @@
         header {
             width: 100%;
             height: 60px;
-            background-color: #003399;
+            background-color: #087219;
             color: #fff;
             display: flex;
             align-items: center;
@@ -67,7 +67,7 @@
         }
 
         button {
-            background: #003399;
+            background: #087219;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -75,7 +75,7 @@
         }
 
         button:hover {
-            background: #0055cc;
+            background: #087219;
         }
 
         .button-group {
@@ -102,7 +102,7 @@
         }
 
         th {
-            background-color: #003399;
+            background-color: #087219;
             color: white;
         }
     </style>
@@ -116,7 +116,7 @@
         <div class="app-container">
             <form id="pragaForm">
                 <div class="form-group">
-                    <label for="nomePragueiro">Nome do Pragueiro:</label>
+                    <label for="nomePragueiro">Nome do Avaliador:</label>
                     <input type="text" id="nomePragueiro" placeholder="Digite seu nome">
                 </div>
                 <div class="form-group">
@@ -140,6 +140,7 @@
                     <select id="cultura">
                         <option value="soja">Soja</option>
                         <option value="bordamata">Borda da Mata</option>
+                         <option value="interiormata">Interior da Mata</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -158,6 +159,7 @@
                         <option value="bandeja">Bandeja</option>
                         <option value="panobatido">Pano de Batida</option>
                         <option value="contagem">Contagem direta</option>
+                          <option value="guardachuva">Guarda-chuva Entomológico</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -169,7 +171,6 @@
                             <option value="PER">Percevejo-verde (Nezara viridula)</option>
                             <option value="PERM">Percevejo-marrom (Euchistus heros)</option>
                             <option value="PERV">Percevejo-verde-pequeno (Piezodorus guildinii)</option>
-                            <option value="PERAP">Percevejo-marrom (Euchistus heros)</option>
                             <option value="PG">Percevejo Desconhecido</option>
 
                         </optgroup>
@@ -192,7 +193,7 @@
                         
                         <optgroup label="Predadores (Besouros)">
                             <option value="Staphylinidae (potó)">Staphylinidae (potó)</option>
-                            <option value="Histeridae (rola bosta)">Histeridae (rola bosta)</option>
+                            <option value="Histeridae (rola bosta)">Histeridae</option>
                             <option value="Anthicidae">Anthicidae</option>
                             <option value="Cantharidae">Cantharidae</option>
                             <option value="Carabidae">Carabidae</option>
@@ -375,7 +376,18 @@
 
     carregarDados();
 });
-
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+                console.log('Service Worker registrado com sucesso:', registration);
+            })
+            .catch((error) => {
+                console.log('Erro ao registrar o Service Worker:', error);
+            });
+    });
+}
+});
    </script>
 </body>
 </html>
